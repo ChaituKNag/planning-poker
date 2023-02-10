@@ -1,0 +1,24 @@
+{
+  "name": "planning-poker",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "description": "A simple planning poker app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChaituKNag/planning-poker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChaituKNag/planning-poker/issues"
+  },
+  "homepage": "https://github.com/ChaituKNag/planning-poker#readme"
+}
