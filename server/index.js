@@ -4,9 +4,13 @@ const { Server } = require("socket.io");
 const app = express();
 const httpServer = createServer(app);
 
+const clientUrl = process.env.CLIENT_URL || 'http://localhost:3002';
+
+console.log('CLIENT_URL', clientUrl);
+
 const io = new Server(httpServer, { 
   cors: {
-    origin: process.env.CLIENT_URL || 'http://localhost:3002',
+    origin: clientUrl,
   }
  });
 
