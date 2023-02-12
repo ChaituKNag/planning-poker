@@ -66,6 +66,14 @@ function setupComms() {
     });
   });
 
+  socket.on("get user games", ({ userId }) => {
+    console.log("get user games");
+
+    const games = db.data.games.filter((game) => game.admin === userId);
+
+    socket.emit("user games", games);
+  });
+
   socket.on("join game", ({ gameId, userId }) => {
     console.log("join game");
 

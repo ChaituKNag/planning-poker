@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from "react";
-import { setupApi } from "./api";
+import { setupApi } from "../api";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [ready, setReady] = useState(false);
