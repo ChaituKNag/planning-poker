@@ -1,0 +1,17 @@
+{
+  "users": [],
+  "games": [
+    {
+      "name": "test",
+      "id": "277b822b-9d7b-468c-ba07-bed27fdf03a0",
+      "admin": "0a41aa48-5bcd-4383-9805-1c1784fed675",
+      "users": [
+        "0a41aa48-5bcd-4383-9805-1c1784fed675"
+      ],
+      "rounds": [],
+      "status": "open"
+    }
+  ],
+  "rounds": [],
+  "estimates": []
+}

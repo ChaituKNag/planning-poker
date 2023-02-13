@@ -54,16 +54,17 @@ function setupComms() {
 
   socket.on("create game", ({ id, name = "", admin }) => {
     console.log("create game");
-    db.data.games.push({ name, id, admin, users: [admin] });
-    db.write();
-    socket.emit("game created", {
+    const game = {
       name,
       id,
       admin,
       users: [admin],
       rounds: [],
       status: "open"
-    });
+    };
+    db.data.games.push(game);
+    db.write();
+    socket.emit("game created", game);
   });
 
   socket.on("get user games", ({ userId }) => {
@@ -83,10 +84,14 @@ function setupComms() {
       socket.emit("game not found");
     } else {
       socket.join("game-" + gameId);
-      game.users.push(userId);
-      db.write();
-      io.in("game-" + gameId).emit("user joined", { userId, gameId });
-      socket.emit("joined game", { gameId, userId });
+
+      if (game.users.find((_userId) => _userId !== userId)) {
+        game.users.push(userId);
+        db.write();
+      }
+
+      io.in("game-" + gameId).emit("user joined", { userId, game });
+      socket.emit("joined game", { game, userId });
     }
   });
 
